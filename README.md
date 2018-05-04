@@ -20,18 +20,16 @@ koska kyseessä on live-tikku.
 	$ sudo apt-get update
 	$ sudo apt-get -y install git salt-minion
 
-## a) Valitse aihe omaksi kurssityöksi ja varaa se kommenttina aikataulusivun 
-perään.
+## a) Valitse aihe omaksi kurssityöksi ja varaa se kommenttina aikataulusivun perään.
 
 Oma aiheeni on Logstashin asennus ja sen konfigurointi. Tällä ohjelmalla voidaan
 kerätä dataa eri lähteistä ja yhdistää ne yhteen luettavaan muotoon. Tavoitteena
 on saada toimiva sovellus analyysiä ja monitorointia varten omaan käyttöön.
 
-## b) Julkaise raportti MarkDownilla. Jos käytät GitHub:ia, se tekee muotoilun 
-automaattisesti “.md”-päätteisiin dokumentteihin.
+## b) Julkaise raportti MarkDownilla. Jos käytät GitHub:ia, se tekee muotoilun automaattisesti “.md”-päätteisiin dokumentteihin.
 
-Aloitin tämän kohdan luomalla repositoryn Githubissa. Loin samalla myös tuonne 
-repositoryyn valmiiksi mukaan README.md-tiedoston. Tämän jälkeen kloonasin sen
+Aloitin tämän kohdan luomalla repositoryn Githubissa. [Löydät ohjeet tähän tältä sivulta.](http://terokarvinen.com/2016/publish-your-project-with-github) 
+Loin samalla myös tuonne repositoryyn valmiiksi mukaan README.md-tiedoston. Tämän jälkeen kloonasin sen
 harjoituksessa käyttämälleni kannettavalla tietokoneelle seuraavalla komennolla.
 
 	$ git clone https://github.com/villetouronen/Harjoitus5.git
@@ -47,7 +45,7 @@ Ohjeita MarkDownin tekstin muotoilua varten löydät [täältä.](https://github
 Seuraavaksi voit avata uuden välilehden terminaaliin, jotta pääset luomaan omaa
 Salt-tilaa.
 
-##c) Aja oma Salt-tila suoraa git-varastosta. Voit joko tehdä tilan alusta lähtien 
+## c) Aja oma Salt-tila suoraa git-varastosta. Voit joko tehdä tilan alusta lähtien 
 itse tai forkata sirottimen. 
 
 Aloitetaan luomalla ensin top.sls-tiedosto samaan repositoryyn. Tämä onnistuu seuraavalla
@@ -64,4 +62,26 @@ asennettavat ohjelmat. Tämä onnistuu seuraavalla komennolla.
 
 [Tiedoston tulisi näyttää tältä.](https://github.com/villetouronen/Harjoitus5/install.sls)
 
+Koska loimme top.sls-tiedoston meidän ei tarvitse asentaa Salt masteria ja konfiguroida sitä. Voimme 
+siis ajaa suoraan tilan seuraavalla komennolla.
+
+	$ sudo salt-call -- local state.highstate --file.root
+
+Tämän jälkeen voimme committaa ja siirtää kaiken tavaran githubiin seuraavalla komennolla.
+
+	$ git add . && git commit; git pull && git push
+
+Onneksi olkoon! Nyt kaikki on siirretty githubin suojiin, josta voit ajaa ne aina tarvittaessa.
+Seuraavaksi voimme poistaa hakemiston ja ohjelmat jotka on koneellasi, kloonata sen uudelleen ja lopulta
+ajaa uudelleen tuon tilan. Tämä onnistuu seuraavilla komennoilla.
+
+	$ rm -rf Harjoitus5
+	$ sudo apt-get purge -y vlc cmatrix figlet
+	$ git clone https://github.com/villetouronen/Harjoitus5.git
+	$ cd Harjoitus5
+	$ sudo salt-call -- local state.highstate --file.root
+
+Terminaali tulosti seuraavan näkymän:
+
+	
 
