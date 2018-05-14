@@ -26,6 +26,15 @@ Oma aiheeni on Logstashin asennus ja sen konfigurointi. Tällä ohjelmalla voida
 kerätä dataa eri lähteistä ja yhdistää ne yhteen luettavaan muotoon. Tavoitteena
 on saada toimiva sovellus analyysiä ja monitorointia varten omaan käyttöön.
 
+*Muokattu 14.5.2018*
+
+Aikaisemmin valitsemani aihe Logstashin ja tarvittavien lisäosien asentamisesta sekä
+konfiguroinnista osoittautui liian haasteelliseksi omille taidoilleni, joten vaihdoin 
+moduulini aiheen sellaiseksi, jota voisin itse käyttää tulevaisuudessa ja tarvittaessa 
+muokata siihen lisäominaisuuksia. Moduulini siis asentaa minulle tarpeellisia ohjelmia, 
+kuten Vlc, Blender ja Shutter. Näiden lisäksi se asentaa Apachen ja siihen tarvittavan 
+PHP-kirjaston, sekä SSH:n ja muokkaa sen oletusportin toiseksi.
+
 ## b) Julkaise raportti MarkDownilla. Jos käytät GitHub:ia, se tekee muotoilun automaattisesti “.md”-päätteisiin dokumentteihin.
 
 Aloitin tämän kohdan luomalla repositoryn Githubissa. [Löydät ohjeet tähän tältä sivulta.](http://terokarvinen.com/2016/publish-your-project-with-github) 
